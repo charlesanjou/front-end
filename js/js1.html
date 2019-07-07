@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+
+<body>
+    <input id="first-number" type="number" value="0" placeholder="第一个数字">
+    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+    let getNumbers = (sign) => {
+        let v1 = parseInt(document.querySelector('#first-number').value);
+        let v2 = parseInt(document.querySelector('#second-number').value);
+        switch (sign) {
+            case '*':
+                return v1 * v2;
+                break;
+            case '+':
+                return v1 + v2;
+                break;
+            case '-':
+                return v1 - v2;
+                break;
+            case '/':
+                return v1 / v2;
+                break;
+        }
+    };
+    let result = document.querySelector('#result');
+    //注意在点击时再去获取input的值，提前获取input的值一直是0
+    document.querySelector('#add-btn').addEventListener('click', () => {
+        result.innerHTML = getNumbers('+')
+    });
+    document.querySelector('#minus-btn').addEventListener('click', () => {
+        result.innerHTML = getNumbers('-')
+    });
+    document.querySelector('#times-btn').addEventListener('click', () => {
+        result.innerHTML = getNumbers('*')
+    });
+    document.querySelector('#divide-btn').addEventListener('click', () => {
+        result.innerHTML = getNumbers('/')
+    });
+    </script>
+</body>
+
+</html>
